@@ -1,0 +1,7 @@
+{
+  "description": "Example with python platform dependency on an external package",
+  "timeout": 10,
+  "hooks":{
+    "build": "docker run -v $(pwd):/tmp python-build pip install -r /tmp/requirements.txt -t /tmp"
+  }
+}

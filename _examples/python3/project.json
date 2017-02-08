@@ -1,0 +1,7 @@
+{
+  "name": "python3",
+  "description": "Python 3 example project",
+  "role": "arn:aws:iam::293503197324:role/apex_lambda_function",
+  "runtime": "nodejs4.3",
+  "shim": true
+}

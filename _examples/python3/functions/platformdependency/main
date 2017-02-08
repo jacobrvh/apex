@@ -1,0 +1,20 @@
+#! /usr/bin/python3 -u
+
+import json
+import logging
+import sys
+import traceback
+
+logging.basicConfig(stream=sys.stderr)
+
+stdout = sys.stdout
+sys.stdout = sys.stderr
+
+for line in sys.stdin:
+  try:
+    from main import handle
+    input = json.loads(line)
+    result = handle(input["event"], input["context"])
+    stdout.write(json.dumps({"value": result}) + "\n")
+  except:
+    stdout.write(json.dumps({"error": traceback.format_exc()}) + "\n")
